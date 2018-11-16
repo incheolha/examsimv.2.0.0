@@ -1,0 +1,52 @@
+
+<div class="view">
+
+        <div class="row t-1">
+            <div class="col-md-11 p-0 mx-auto">
+                    <mdb-tabset #staticTabs [buttonClass]="'nav-tabs tabs-6 pills-secondary blue lighten-2'" [contentClass]="''">
+
+                            <mdb-tab heading="Edit User Profile">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <br>
+                                        <app-edit-user-profile [profileInfo]="profileInfo"></app-edit-user-profile>
+                                    </div>
+                                </div>
+                            </mdb-tab>
+
+                            <mdb-tab heading="Exam History">
+                                <div class="row">
+                                    <div class="col-md-12 mx-auto">
+                                        <br>
+                                        <app-exam-history></app-exam-history>
+                                    </div>
+                                </div>
+                            </mdb-tab>
+
+                            <mdb-tab heading="Exam Analysis">
+                                <div class="row">
+                                    <div class="col-md-12 mx-auto">
+                                        <br>
+                                       <app-exam-analysis></app-exam-analysis>
+                                    </div>
+                                </div>
+                            </mdb-tab>
+
+                            <mdb-tab heading="Exam Order Histroy">
+                                <div class="row">
+                                    <div class="col-md-12 mx-auto">
+                                        <br>
+                                        <app-profile-order-history [paidToeflLists]="paidToeflLists" [numberOfPaginators]="numberOfPaginators" [paginators]="paginators" [totalAmount]="totalAmount"></app-profile-order-history>
+                                    </div>
+                                </div>
+                            </mdb-tab>
+
+                    </mdb-tabset>
+            </div>
+        </div>
+        <div class="row t-1">
+          <div class="col-md-11 text-center mx-auto">
+              <button mdbBtn type="button" color="primary" (click)="onReturn()" mdbWavesEffect><mdb-icon icon="magic" class="mr-1"></mdb-icon>Confirmation</button>
+          </div>
+        </div>
+</div>

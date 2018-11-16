@@ -1,0 +1,26 @@
+
+.fullscreen {
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow-y: auto;
+}
+  .makeExam {
+    height: 40rem;
+  }
+  .paragraphArea {
+    height: 40rem;
+    overflow-y: auto;
+  }
+
+.row {
+  position: relative;
+  padding: 0;
+  bottom: -1rem;
+}
+.row1 {
+  position: relative;
+  top: -1rem;
+}

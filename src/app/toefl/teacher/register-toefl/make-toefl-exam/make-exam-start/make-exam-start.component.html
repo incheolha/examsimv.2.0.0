@@ -1,0 +1,59 @@
+<!-- Nav tabs -->
+<div class="fullscreen">
+    <div class="row mr-0">
+            <div class="col-md-12 mx-auto">
+            <app-stepper [currentStep]="currentStep"></app-stepper>
+            </div>
+    </div>
+    <div class="row row1">
+    <div class="col-md-12 mx-auto">
+        <mdb-tabset #staticTabs [buttonClass]="'nav-tabs tabs-4 indigo'" [contentClass]="'class2'">
+                    <!--Panel 1-->
+                    <mdb-tab heading="<i class='fa fa-user'></i> Reading Comprehension"
+                      (select)="onSelectReading()"
+                      >
+                        <div class="row class1">
+                            <div class="col-12">
+                                <br>
+                                <app-reading-exam [currentToefl]="currentToefl"></app-reading-exam>
+                            </div>
+                        </div>
+                    </mdb-tab>
+                    <!--Panel 2-->
+                    <mdb-tab heading="<i class='fa fa-heart'></i> Listening Comprehension"
+                             (select)="onSelectListening()">
+                        <div class="row class2">
+                            <div class="col-12">
+                                <br>
+                                <app-listening-exam [currentToefl]="currentToefl"></app-listening-exam>
+                            </div>
+                        </div>
+                    </mdb-tab>
+                    <!--Panel 3-->
+                    <mdb-tab heading="<i class='fa fa-envelope'></i> Writing Comprehension"
+                              (select)="onSelectWriting()">
+                        <div class="row class3">
+                            <div class="col-12">
+                                <br>
+                                <app-writing-exam [currentToefl]="currentToefl"></app-writing-exam>
+                            </div>
+                        </div>
+                    </mdb-tab>
+                    <!--Panel 4-->
+                    <mdb-tab heading="<i class='fa fa-envelope'></i> Speaking Comprehension"
+                      (select)="onSelectSpeaking()">
+                        <div class="row class4">
+                            <div class="col-12">
+                                <br>
+                                <app-speaking-exam [currentToefl]="currentToefl"></app-speaking-exam>
+                            </div>
+                        </div>
+                    </mdb-tab>
+        </mdb-tabset>
+
+
+    </div>
+
+</div>
+
+

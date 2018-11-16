@@ -1,0 +1,22 @@
+
+.view {
+  background: url("../../assets/university.jpg") no-repeat center center;
+  background-size: cover;
+  height: 80vh;
+}
+
+.view1 {
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 30rem;
+}
+
+#floatingCard{
+  position: relative;
+  bottom: 50px;
+}
+
+.navbar {
+  z-index: 1;
+}

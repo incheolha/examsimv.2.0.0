@@ -1,0 +1,65 @@
+
+<div class="view">
+
+    <div class="col-md-11 mx-auto">
+      <mdb-card cascade="true" narrower="true">
+          <div class="view-cascade gradient-card-header blue-gradient narrower z-depth-1-half">
+            <div class="row">
+              <div class="col-md-1">
+                  <div class="text-left">
+                      <a mdbBtn floating="true" size="sm" gradient="blue" (click)="onReturn()" mdbWavesEffect><mdb-icon icon="angle-double-left"></mdb-icon></a>
+                  </div>
+              </div>
+              <div class="col-md-11 p-3">
+                  <div class="text-center">
+                      <h4 class="white-text font-weight-bold text-uppercase mb-0">
+                          Table with pagination</h4>
+                  </div>
+              </div>
+            </div>
+          </div>
+        <div class="px-4">
+          <table class="table table-hover table-responsive-md mb-0 text-center">
+              <thead>
+              <tr>
+                <th scope="th-lg">Exam No<mdb-icon class="ml-1" icon="sort" (click)="sortBy('examNo')"></mdb-icon></th>
+                <th class="th-lg">Exam Type</th>
+                <th class="th-lg">Exam Level<mdb-icon class="ml-1" icon="sort" (click)="sortBy('examLevel')"></mdb-icon></th>
+                <th class="th-lg">Purchased Price<mdb-icon class="ml-1" icon="sort" (click)="sortBy('examPrice')"></mdb-icon></th>
+                <th class="th-lg">Purchased Date</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let paidToeflItem of elements; let i = index">
+                  <th *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" scope="row" class="align-middle">{{paidToeflItem.examNo}}</th>
+                  <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex"class="align-middle">
+                          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg"
+                          class="avatar rounded-circle z-depth-1-half"></td>
+                  <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" class="align-middle">{{paidToeflItem.examLevel}}</td>
+                  <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" class="align-middle">{{paidToeflItem.examPrice | currency: "USD"}}</td>
+                  <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" class="align-middle">{{paidToeflItem.paidDate | date }}</td>
+              </tr>
+              </tbody>
+              <tfoot class="grey lighten-5" p-0>
+                <tr>
+                  <td colspan="5">
+                    <mdb-table-pagination
+                                          (nextPageClick)="onNextPageClick($event)"
+                                          (previousPageClick)="onPreviousPageClick($event)">
+                    </mdb-table-pagination>
+                  </td>
+                </tr>
+
+              </tfoot>
+          </table>
+        </div>
+      </mdb-card>
+
+      <hr class="my-0">
+
+      <div class="text-center">
+            <button mdbBtn type="button" color="primary" (click)="onReturn()" mdbWavesEffect><mdb-icon icon="magic" class="mr-1"></mdb-icon>Confirmation</button>
+        </div>
+
+    </div>
+</div>

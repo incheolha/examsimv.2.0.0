@@ -1,0 +1,29 @@
+<div *ngIf="!toeflListHide">
+    <div class="row">
+        <div class="col-md-12 pt-0 text-center">
+              <button class="btn btn-success"
+              (click)="onNewToeflRegistration()"  >
+                New Toefl Registion
+              </button>
+        </div>
+    </div>
+    <hr>
+        <div *ngIf="toefls.length > 2" class="row scrollbar scrollbar-morpheus-den">
+            <div class="mt-auto col-md-12">
+                <app-regist-item
+                                *ngFor="let toeflElement of toefls.slice().reverse(); let i = index"
+                                [toefl]="toeflElement"
+                                [index]="i">
+                </app-regist-item>
+            </div>
+          </div>
+          <div *ngIf="toefls.length <= 2">
+              <div class="mt-auto col-md-12">
+                  <app-regist-item
+                                  *ngFor="let toeflElement of toefls.slice().reverse(); let i = index"
+                                  [toefl]="toeflElement"
+                                  [index]="i">
+                  </app-regist-item>
+              </div>
+          </div>
+</div>

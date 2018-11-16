@@ -1,0 +1,56 @@
+
+
+<section class="wrapper">
+
+  <div class="row mx-0 p-3">
+
+        <div class="col-md-9 mx-auto">
+            <div class="card z-depth-1-half text-center">
+                <h3 class="card-header primary-color white-text z-depth-1">ShoppingList</h3>
+                <mdb-progress-bar class="progress primary-color-dark" mode="indeterminate"></mdb-progress-bar>
+
+                <div class="table-responsive">
+                    <table class="table align-middle text-center">
+
+                        <thead>
+                                <tr>
+                                  <th colspan="1">Toefl No</th>
+                                  <th colspan="1">Toefl Image</th>
+                                  <th colspan="1">Toefl Level</th>
+                                  <th colspan="1">Price</th>
+                                </tr>
+                        </thead>
+
+                        <tbody>
+                                <tr *ngFor="let shoppingItem of shoppingCartLists">
+
+                                  <td colspan="1" class="align-middle">{{shoppingItem.examNo}}</td>
+                                  <td colspan="1" class="align-middle">
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="avatar rounded-circle z-depth-1-half"></td>
+                                  <td colspan="1" class="align-middle">{{shoppingItem.examLevel}}</td>
+                                  <td colspan="1" class="align-middle">{{shoppingItem.examPrice | currency: "USD"}}</td>
+
+                                </tr>
+                        </tbody>
+                <tr>
+                  <th colspan="2"></th>
+                  <th colspan="1"><strong>Total Price</strong></th>
+                  <th colspan="1"><strong>{{ totalAmount | currency: "USD" }}</strong></th>
+                </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-3 mx-auto">
+              <app-order-summary [totalAmount]="totalAmount" id="sticky" class="z-depth-2"></app-order-summary>
+        </div>
+
+   </div>
+
+
+
+</section>
+
+

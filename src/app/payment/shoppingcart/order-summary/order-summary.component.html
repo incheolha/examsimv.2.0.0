@@ -1,0 +1,56 @@
+
+<mdb-card class="text-center">
+    <mdb-card-header class="dark-grey-text">
+      <h3><strong>Order Summary</strong></h3>
+    </mdb-card-header>
+
+      <div class="table-responsive">
+          <table class="table text-right">
+              <tbody>
+
+                  <td colspan="2">Subtotal</td>
+                  <td colspan="1">{{ totalAmount | currency : "USD"}}</td>
+
+                  <tr>
+                  <td colspan="2">Estimated Tax</td>
+                  <td colspan="1"></td>
+                  </tr>
+                  <tr>
+                      <th colspan="2">Total</th>
+                      <th colspan="1">{{ totalAmount | currency : "USD"}}</th>
+                  </tr>
+                  <tr>
+                    <td colspan="3">
+                        <button type="button"
+                        class="btn blue-gradient btn-block z-depth-1a waves-light"
+                        (click)="onCheckOut()"
+                        mdbWavesEffect>Check Out
+                        </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      Promo Code
+                    </td>
+                    <td colspan="2">
+                        12345678
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                        <button class="btn btn-block btn-sm red" id="couponBtn" (click)="goCancel()">Cancel</button>
+                    </td>
+                    <td colspan="2">
+                        <button class="btn btn-block btn-sm green" id="couponBtn" (click)="getPromoCode()">apply</button>
+                    </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+
+
+    <mdb-card-footer class="text-muted success-color white-text">
+      <p class="mb-0">2 days ago</p>
+    </mdb-card-footer>
+  </mdb-card>
+

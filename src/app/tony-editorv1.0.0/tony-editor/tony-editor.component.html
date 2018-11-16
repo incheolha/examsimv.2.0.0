@@ -1,0 +1,27 @@
+<div>
+  <app-tony-editor-toolbar [config]="config" (execute)="executeCommand($event)"></app-tony-editor-toolbar>
+</div>
+  <div class="tony-editor"
+       id="tonyEditor"
+       [style.width]="config['width']"
+       [style.minWidth]="config['minWidth']"
+       tabindex="0"
+      (focus)="onEditorFocus()">
+
+    <!-- text area -->
+    <div class="tony-wrapper" #tonyWrapper>
+      <div class="tony-editor-textarea"
+           [attr.contenteditable]="config['editable']"
+
+           (input)="onContentChange($event.target.innerHTML)"
+           [attr.translate]="config['translate']"
+           [attr.spellcheck]="config['spellcheck']"
+           [style.height]="config['height']"
+           [style.minHeight]="config['minHeight']"
+           (focus)="onTextAreaFocus()"
+           (blur)="onTextAreaBlur()"
+           #tonyTextArea>
+      </div>
+
+    </div>
+  </div>

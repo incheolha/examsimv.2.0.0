@@ -1,0 +1,21 @@
+
+  .wrapper {
+              position: relative;
+              width: 100%;
+              margin-right: auto;
+              margin-left: auto;
+              margin-top: 4rem;
+  }
+
+
+  #sidebar {
+                    float: left;
+  }
+
+
+  /* The sticky */
+  #sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }

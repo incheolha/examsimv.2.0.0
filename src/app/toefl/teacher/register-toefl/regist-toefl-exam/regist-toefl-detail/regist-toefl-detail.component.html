@@ -1,0 +1,43 @@
+
+  <!-- Card -->
+      <div class="card testimonial-card col-md-12 p-0 mt-auto">
+
+        <!-- Bacground color -->
+        <div class="card-up indigo lighten-1">
+        </div>
+
+        <!-- Avatar -->
+        <div class="avatar mx-auto white">
+            <img  [src]="toefl.toeflImage" alt="toefl.toeflImage"
+            class="rounded-circle image-responsive">
+        </div>
+
+        <div class="card-body">
+            <!-- Name -->
+            <h4 class="card-title">Toefl Regitration NO: {{ toefl.toeflNo }}</h4>
+            <hr>
+            <!-- Quotation -->
+            <div class="para">
+            <p><i class="fa fa-quote-left"></i>
+                {{ toefl.toeflDesc }}
+            </p>
+        </div>
+        </div>
+
+           <!-- Card footer -->
+    <div class="mdb-color lighten-3 text-center">
+        <ul class="list-unstyled list-inline font-small mt-3">
+            <li class="list-inline-item pr-2">
+                <button class="btn btn-default btn-sm" (click)="onEditToeflRegistration()" >Edit</button>
+            </li>
+            <li class="list-inline-item pr-2">
+                <button class="btn btn-danger btn-sm" (click)="onDeleteRegistration()" >Delete</button>
+            </li>
+            <li class="list-inline-item pr-2">
+                <button class="btn btn-danger btn-sm" (click)="onMakeExam()" >Make Exam</button>
+            </li>
+
+        </ul>
+    </div>
+    <!-- Card footer -->
+      <!-- Card -->

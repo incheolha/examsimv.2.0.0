@@ -1,0 +1,90 @@
+
+
+<!--Main Layout-->
+
+<div class="view">
+        <div class="full-bg-img">
+            <div class="mask rgba-black-strong flex-center">
+                <div class="container">
+                        <div class="form-gradient col-md-6 mx-auto">
+                                <!--Form with header-->
+                                <div class="card">
+        
+                                    <!--Header-->
+                                    <div class="header pt-3 blue-gradient z-depth-2">
+        
+                                        <div class="row d-flex justify-content-center">
+                                            <h3 class="white-text mb-3 pt-3 font-weight-bold">Log in</h3>
+                                        </div>
+        
+                                        <div class="row mt-2 mb-3 d-flex justify-content-center">
+                                            <!--Facebook-->
+                                            <a class="btn-floating btn-lg purple-gradient waves-light" mdbWavesEffect><i class="fa fa-facebook"></i></a>
+                                            <a class="btn-floating btn-lg purple-gradient waves-light" mdbWavesEffect><i class="fa fa-twitter"></i></a>
+                                            <a class="btn-floating btn-lg purple-gradient waves-light" mdbWavesEffect><i class="fa fa-google-plus"></i></a>
+                                        </div>
+        
+                                    </div>
+                                    <!--Header-->
+        
+                                    <div class="card-body mx-4 mt-4">
+                                        <!-- SigUp form -->
+                                        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                                            <div class="md-form">
+                                            <i class="fa fa-envelope prefix grey-text"></i>
+                                            <input
+                                                    type="email"
+                                                    formControlName="email"
+                                                    id="email"
+                                                    class="form-control"
+                                                    mdbInputDirective
+                                            >
+                                            <label for="email">Your email</label>
+                                            </div>
+                                            <div class="md-form pb-1 pb-md-3">
+                                                <i class="fa fa-lock prefix grey-text"></i>
+                                                <input
+                                                    type="password"
+                                                    formControlName="password"
+                                                    id="password"
+                                                    class="form-control"
+                                                    mdbInputDirective
+                                                >
+                                                <label for="Form-pass3">Your password</label>
+                                                <p class="font-small grey-text d-flex justify-content-end">Forgot <a href="#" class="dark-grey-text ml-2 font-weight-bold"> Password?</a></p>
+                                            </div>
+                                            <!--Grid row-->
+                                            <div class="row d-flex align-items-center mb-4">
+        
+                                                <!--Grid column-->
+                                                <div class="col-md-1 col-md-5 d-flex align-items-start">
+                                                    <div class="text-center">
+                                                        <button *ngIf="!isLoading" type="submit" class="btn btn-grey btn-rounded z-depth-1">Log in</button>
+        
+                                                        <!--Big blue-->
+                                                        <mdb-spinner *ngIf="isLoading" spinnerType="big crazy"></mdb-spinner>
+        
+                                                    </div>
+                                                </div>
+                                                <!--Grid column-->
+        
+                                                <!--Grid column-->
+                                                <div class="col-md-7">
+                                                    <p class="font-small grey-text d-flex justify-content-start mt-1">Don't have an account? <a href="#" class="dark-grey-text ml-3 font-weight-bold"> Sign up</a></p>
+                                                </div>
+                                                <!--Grid column-->
+        
+                                            </div>
+                                            <!--Grid row-->
+                                        </form>
+                                        <!--/Form with header-->
+                                    </div>
+                                </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+<!--/Main layout-->

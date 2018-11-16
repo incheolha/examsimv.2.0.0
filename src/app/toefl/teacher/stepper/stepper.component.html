@@ -1,0 +1,103 @@
+
+<ul class="stepper stepper-horizontal m-0">
+    <li *ngIf="currentStep.home" class="completed">
+        <a type="button" (click)="onMainHome()">
+
+            <span class="circle">1</span>
+            <span class="label">Toefl List</span>
+        </a>
+    </li>
+    <li *ngIf="currentStep.toeflList" class="completed">
+        <a type="button" (click)="onToelfList()">
+
+            <span class="circle">2</span>
+            <span class="label">Toefl No. {{currentStep.toeflNo}}</span>
+        </a>
+    </li>
+    <li *ngIf="currentStep.readingArea" class="completed">
+        <a type="button" (click)="onToelfMakeExam()">
+
+            <span class="circle">3</span>
+            <span class="label">Reading Areas</span>
+        </a>
+    </li>
+    <li *ngIf="currentStep.listeningArea" class="completed">
+        <a href="#!">
+            <span class="circle">3</span>
+            <span class="label">Listening Areas</span>
+        </a>
+    </li>
+    <li *ngIf="currentStep.writingArea" class="completed">
+        <a href="#!">
+            <span class="circle">3</span>
+            <span class="label">Writing Areas</span>
+        </a>
+    </li>
+    <li *ngIf="currentStep.speakingArea" class="completed">
+        <a href="#!">
+            <span class="circle">3</span>
+            <span class="label">Speaking Areas</span>
+        </a>
+    </li>
+
+    <li *ngIf="currentStep.readingSection1" class="completed">
+        <a type="button" (click)="onToelfMakeExamSection1()">
+            <span class="circle">4</span>
+            <span class="label">Section 1</span>
+        </a>
+    </li>
+    <li *ngIf="currentStep.readingSection2" class="completed">
+        <a type="button" (click)="onToelfMakeExamSection2()">
+            <span class="circle">5</span>
+            <span class="label">Section 2</span>
+        </a>
+    </li>
+    <li *ngIf="currentStep.readingSection3" class="completed">
+            <a type="button" (click)="onToelfMakeExamSection3()">
+                <span class="circle">6</span>
+                <span class="label">Section 3</span>
+            </a>
+    </li>
+    <li *ngIf="currentStep.readingSection4" class="completed">
+            <a type="button" (click)="onToelfMakeExamSection4()">
+                <span class="circle">7</span>
+                <span class="label">Section 4</span>
+            </a>
+    </li>
+    <li *ngIf="currentStep.listeningSection1" class="completed">
+            <a href="#!">
+                <span class="circle">4</span>
+                <span class="label">Section 1</span>
+            </a>
+    </li>
+    <li *ngIf="currentStep.listeningSection2" class="completed">
+            <a href="#!">
+                <span class="circle">5</span>
+                <span class="label">Section 2</span>
+            </a>
+    </li>
+    <li *ngIf="currentStep.listeningSection3" class="completed">
+            <a href="#!">
+                <span class="circle">6</span>
+                <span class="label">Section 3</span>
+            </a>
+    </li>
+    <li *ngIf="currentStep.listeningSection4" class="completed">
+            <a href="#!">
+                <span class="circle">7</span>
+                <span class="label">Section 4</span>
+            </a>
+    </li>
+    <li *ngIf="currentStep.listeningSection5" class="completed">
+            <a href="#!">
+                <span class="circle">8</span>
+                <span class="label">Section 5</span>
+            </a>
+    </li>
+    <li *ngIf="currentStep.listeningSection6" class="completed">
+            <a href="#!">
+                <span class="circle">9</span>
+                <span class="label">Section 6</span>
+            </a>
+    </li>
+</ul>

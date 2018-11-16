@@ -1,0 +1,142 @@
+<!-- Navbar -->
+   <mdb-navbar SideClass="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav" [containerInside]="false">
+
+<!-- SideNav slide-out button -->
+                <navlinks class="navbar-container">
+                    <div class="float-left">
+                        <a (click)="onToggleSideNav()" class="button-collapse hidden-nav-button-collapse">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </div>
+                </navlinks>
+
+<!-- Breadcrumb-->
+                <logo>
+
+                    <div class="breadcrumbs breadcrumbs-hidden-nav breadcrumb-dn mr-auto">
+                        <p>Total Examinations for People </p>
+                    </div>
+                </logo>
+
+<!-- 가로 진열하는 각종 navbar menu를 구성하는 영역 -->
+      <navlinks>
+              <ul class="nav navbar-nav nav-flex-icons ml-auto ie-double-nav ie-hidden-double-nav">
+
+
+    <!-- 시험출제자 모드로 로그인 하였을시 활성화 시킨다 -->
+                        <li *ngIf="isteacherAuth" class="nav-item">
+
+                            <a class="nav-link border border-light rounded waves-light"
+                            [routerLink]="['/teacher']"
+                            mdbWavesEffect>
+                                <i class="fa fa-pencil-square-o"></i>
+                                <span class="clearfix d-none d-sm-inline-block">Examination</span>
+                            </a>
+                        </li>
+
+    <!-- Contact Navbar 시작 -->
+                        <li  class="nav-item">
+                            <a class="nav-link waves-light" mdbWavesEffect>
+                                <i class="fa fa-envelope-o"></i>
+                                <span class="clearfix d-none d-sm-inline-block">Contact</span>
+                            </a>
+                        </li>
+
+    <!-- Support Navbar 시작 -->
+                        <li  class="nav-item">
+                            <a class="nav-link waves-light" mdbWavesEffect>
+                                <i class="fa fa-comments-o"></i>
+                                <span class="clearfix d-none d-sm-inline-block">Support</span>
+                            </a>
+                        </li>
+
+    <!-- shopping cart dropdown menu시작 -->
+
+                        <li *ngIf="!isteacherAuth && isAuth" class="nav-item dropdown btn-group" dropdown >
+
+
+                              <a dropdownToggle type="button" aria-hidden="true"
+                                  class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                                      <i class="fa  fa-shopping-bag fa-lg" aria-hidden="true"></i>
+                                      <span class="counter">  {{ shoppingcartListCounter }} </span>
+                              </a>
+                                              <div *ngIf="shoppingcartListCounter != 0" class="dropdown-menu dropdown-primary dropdown-menu-right text-center"  role="menu" >
+                                                          <table class="table">
+                                                              <thead>
+                                                                <tr>
+                                                                  <th colspan="1">No</th>
+                                                                  <th colspan="1">Level</th>
+                                                                  <th colspan="1">Price</th>
+                                                                  <th colspan="1">Remove</th>
+                                                                </tr>
+                                                              </thead>
+                                                              <tbody>
+
+                                                                <tr *ngFor="let shoppingcartItem of shoppingcartLists">
+
+                                                                  <td colspan="1">
+                                                                      {{shoppingcartItem.examNo}}
+                                                                  </td>
+                                                                  <td colspan="1">
+                                                                      {{shoppingcartItem.examLevel}}
+                                                                  </td>
+                                                                  <td colspan="1">
+                                                                      {{shoppingcartItem.examPrice | currency : "USD" }}
+                                                                  </td>
+                                                                  <td colspan="1">
+                                                                      <button type="button" class="close" aria-label="Close" (click)="shoppingcartItemDelete(shoppingcartItem)">
+                                                                          <span aria-hidden="true">&times;</span>
+                                                                      </button>
+                                                                  </td>
+                                                                </tr>
+                                                              </tbody>
+                                                           </table>
+                                                            <div class="dropdown-divider"></div>
+                                                            <button mdbBtn type="button" color="indigo" rounded="true" outline="true" size="sm"
+                                                                    (click)="goShoppingListCheckOut()" mdbWavesEffect>
+                                                                    <mdb-icon icon="credit-card" class="mr-1"></mdb-icon>
+                                                                    CheckOut
+                                                            </button>
+                                                            <button mdbBtn class="mr-1" type="button" color="indigo" rounded="true" outline="true" size="sm"
+                                                            (click)="goShoppingListSave()" mdbWavesEffect>
+                                                            <mdb-icon icon="credit-card" class="mr-1"></mdb-icon>
+                                                            Save
+                                                    </button>
+
+                                              </div>
+                        </li>
+
+    <!-- 사용자 profile dropdopw menu -->
+                        <li *ngIf="isAuth" class="nav-item dropdown btn-group" dropdown>
+                            <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                                <i class="fa fa-user-circle-o"></i>
+                                {{ userName }}
+                            </a>
+                            <div class="dropdown-menu dropdown-primary dropdown-menu-right" role="menu">
+                                <a class="dropdown-item" [routerLink]="['/auth/profile']"><i class="fa fa-user-circle-o mr-1"></i>Profile</a>
+                                <a *ngIf="!isteacherAuth" class="dropdown-item" [routerLink]="['/auth/orderHistory']"><i class="fa fa-info mr-1"></i>Purchase History</a>
+                                <a class="dropdown-item" [routerLink]="['/auth/logout']"><i class="fa fa-sign-out mr-1"></i>LogOut</a>
+                            </div>
+                        </li>
+
+    <!-- 사용자 login/signup dropdown menu  -->
+                        <li *ngIf="!isAuth" class="nav-item dropdown btn-group" dropdown>
+                            <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                                <i class="fa fa-smile-o"></i>
+                                LogIn
+                            </a>
+                            <div class="dropdown-menu dropdown-primary dropdown-menu-right" role="menu">
+                              <a class="dropdown-item" [routerLink]="['/auth/login']">
+                                <i class="fa fa-sign-in"></i>
+                                LogIn</a>
+                              <a class="dropdown-item" [routerLink]="['/auth/signup']">
+                                <i class="fa fa-registered"></i>
+                                SignUp</a>
+                          </div>
+                        </li>
+
+              </ul>
+      </navlinks>
+  </mdb-navbar>
+
+

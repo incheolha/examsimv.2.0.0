@@ -1,0 +1,58 @@
+<!-- Navbar -->
+  <mdb-navbar SideClass="navbar navbar-light blue fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav" [containerInside]="false">
+
+    <!-- SideNav slide-out button -->
+        <navlinks class="navbar-container">
+            <div class="float-left">
+                <a (click)="onToggleSideNav()" class="button-collapse hidden-nav-button-collapse">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </navlinks>
+
+        <logo>
+                <div class="breadcrumbs breadcrumbs-hidden-nav breadcrumb-dn mr-auto">
+                        <p> 2018.6.9</p>
+                    </div>
+
+
+                  <div class="ml-auto">
+                      <h5>Teacher's Board</h5>
+                  </div>
+        </logo>
+
+        <navlinks>
+            <ul class="nav navbar-nav nav-flex-icons ml-auto ie-double-nav ie-hidden-double-nav">
+
+                <li class="nav-item">
+
+                    <a class="nav-link waves-light white-text"
+                    (click)="goBackHome()"
+                    mdbWavesEffect>
+                        <i class="fa home-o"></i>
+                        <span class="clearfix d-none d-sm-inline-block">Home</span>
+                    </a>
+                </li>
+
+                <li  class="nav-item">
+                    <a class="nav-link waves-light white-text" mdbWavesEffect>
+                        <i class="fa fa-envelope-o"></i>
+                        <span class="clearfix d-none d-sm-inline-block">Contact</span>
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown btn-group" dropdown>
+                    <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light white-text" mdbWavesEffect>
+                        <i class="fa fa-user-circle-o"></i>
+                        Profile
+                    </a>
+                    <div class="dropdown-menu dropdown-primary dropdown-menu-right" role="menu">
+                        <a class="dropdown-item"><i class="fa fa-user-circle-o"></i>Edit</a>
+                        <a class="dropdown-item" [routerLink]="['/auth/logout']">LogOut</a>
+                    </div>
+                </li>
+
+            </ul>
+        </navlinks>
+  </mdb-navbar>
+

@@ -1,0 +1,257 @@
+
+<!-- 메인화면 모드 -->
+
+<div class="view">
+  <div class="full-bg-img">
+      <div class="mask rgba-black-light flex-center">
+          <div class="container">
+              <div class="white-text text-center wow fadeInUp">
+                  <h2 class="font-weight-bold">TOEFL EXAM SIMULATOR</h2>
+                  <h5 class="font-weight-bold">When you need to get better scores</h5>
+                  <br>
+                  <p>In your heart, You know you can get the TOEFL SCORES eaily and fast that you want !!! </p>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+
+<!-- 두번째 2개 카드 모드 -->
+
+<section class="pt-3 pb-3">
+    <div class="row" id="floatingCard">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <div class="border border-gray rounded z-depth-4">
+                <div class="card white text-center">
+                        <!-- Card content -->
+                        <mdb-card-body cascade="true" class="text-center">
+
+                                <!--Title-->
+                                <mdb-card-title>
+                                <h4>
+                                    <strong><i class="fa fa-share-alt-square"></i> To Share Your Tests</strong>
+                                </h4>
+                                </mdb-card-title>
+
+                                <hr>
+                                <button type="button" class="btn indigo accent-4 btn-rounded">SignUp</button>
+                                <mdb-card-text class="mt-3">
+                                    If you want to share your Toefl Test, Please Sign Up for Sharing...
+                                </mdb-card-text>
+
+                                <a type="button" class="btn-floating btn-sm btn-fb"><i class="fa fa-facebook"></i></a>
+                                <a type="button" class="btn-floating btn-sm btn-ins"><i class="fa fa-instagram"></i></a>
+                                <a type="button" class="btn-floating btn-sm btn-yt"><i class="fa fa-youtube"></i></a>
+
+                        </mdb-card-body>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+          <div class="border border-gray rounded z-depth-4">
+              <div class="card white text-center">
+                      <!-- Card content -->
+                      <mdb-card-body cascade="true" class="text-center">
+
+                              <!--Title-->
+                              <mdb-card-title>
+                              <h4>
+                                  <strong><i class="fa fa-pencil-square"></i> To Take Our Best Toefl Exams</strong>
+                              </h4>
+                              </mdb-card-title>
+
+                              <hr>
+                              <button type="button" class="btn deep-orange darken-4 btn-rounded">   SignUp   </button>
+                              <mdb-card-text class="mt-3">
+                                  If you want to take Our Toefl Test, Please Sign Up for taking...
+                              </mdb-card-text>
+
+                              <a type="button" mdbBtn floating="true" size="sm" class="btn-fb waves-light" mdbWavesEffect>
+                                 <i class="fa fa-facebook"></i></a>
+                              <a type="button" mdbBtn floating="true" size="sm" class=" btn-gplus waves-light" mdbWavesEffect>
+                                 <i class="fa fa-google-plus"></i></a>
+
+                      </mdb-card-body>
+              </div>
+          </div>
+        </div>
+    </div>
+</section>
+
+<!-- 세번째 이영역을 carousal을 구현하는 영역임 -->
+<section class="pb-3">
+
+    <h2 class="h1 py-5 font-weight-bold text-center">Do You Want To Take Our Free Toefl Exams?</h2>
+
+    <p class="px-5 mb-3 pb-3 lead grey-text text-center">
+        Please just SignUp or Login to take our Free Toefl Exams to help your decisions.
+    </p>
+
+  <div class="row">
+      <div class="col-md-12">
+
+          <mdb-carousel [isControls]="true" [animation]="'slide'">
+
+              <mdb-carousel-item>
+                  <img class="view1" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg" alt="First slide">
+                    <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+                    <div class="carousel-caption">
+                        <h3 class="py-3 font-weight-bold">
+                            <strong>으메이징한 무료시험 체험하기</strong>
+                        </h3>
+                        <button class="btn btn-secondary btn-rounded btn-md  waves-light" mdbWavesEffect>
+                            <i class="fa fa-clone left"></i>무료시험 보러가기
+                        </button>
+                      </div>
+              </mdb-carousel-item>
+              <mdb-carousel-item>
+                  <img class="view1" src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg" alt="Second slide">
+                  <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+                  <div class="carousel-caption">
+                      <h3 class="py-3 font-weight-bold">
+                          <strong>으메이징한 무료시험 체험하기</strong>
+                      </h3>
+                      <button class="btn btn-secondary btn-rounded btn-md  waves-light" mdbWavesEffect>
+                          <i class="fa fa-clone left"></i>무료시험 보러가기
+                      </button>
+                    </div>
+              </mdb-carousel-item>
+              <mdb-carousel-item>
+                  <img class="view1" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" alt="Third slide">
+                  <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+                  <div class="carousel-caption">
+                      <h3 class="py-3 font-weight-bold">
+                          <strong>으메이징한 무료시험 체험하기</strong>
+                      </h3>
+                      <button class="btn btn-secondary btn-rounded btn-md  waves-light" mdbWavesEffect>
+                          <i class="fa fa-clone left"></i>무료시험 보러가기
+                      </button>
+                    </div>
+              </mdb-carousel-item>
+
+          </mdb-carousel>
+
+      </div>
+  </div>
+
+</section>
+
+<!-- 네번째 이영역은 핫 이벤트 세일이 가능한 toefl list를 전시하고 결재가 이루어 지도록 한다 -->
+<section class="pb-3">
+
+  <h2 class="h1 py-5 font-weight-bold text-center">The Latest Tests With The Highest Hit Rate? 75%Off</h2>
+  <p class="px-5 mb-3 pb-3 lead grey-text text-center">
+      You can take a Toefl Exam with one of the hottest deals for our best Toefl Exams.
+  </p>
+
+  <div class="row">
+      <div class="col-md-11 mx-auto">
+              <app-event-toefl-list></app-event-toefl-list>
+      </div>
+  </div>
+
+
+</section>
+
+
+<!-- 다섯번째 tab을 이용한 모든 토플 시험을 볼수 있도록 구성한다 -->
+<section class="text-center">
+
+  <h2 class="h1-responsive font-weight-bold text-center my-5">Current Toefl Exams</h2>
+  <p class="grey-text text-center w-responsive mx-auto mb-5">Look at our best Toefl Exams for your success. Please try to select one of them to get your best results for your Toefl Scores</p>
+
+  <div class="row">
+      <div class="col-md-11 p-0 mx-auto">
+              <mdb-tabset #staticTabs [buttonClass]="'nav-tabs tabs-6 pills-secondary blue lighten-2'" [contentClass]="''">
+
+                      <mdb-tab heading="All Exams">
+                          <div class="row">
+                              <div class="col-12">
+                                  <br>
+                                  <app-toefl-list
+                                                [toefls]="jointPaidToeflLists"
+                                                [numberOfPaginators]="numberOfPaginators"
+                                                [paginators]="paginators"
+                                                [isAuth]="isAuth"
+                                                [isTeacherAuth]="isTeacherAuth"></app-toefl-list>
+                              </div>
+                          </div>
+                      </mdb-tab>
+
+                      <mdb-tab heading="Beginners Exams">
+                          <div class="row">
+                              <div class="col-12">
+                                  <br>
+                                  <app-beginner-toefl-list
+                                                          [toefls]="beginnerToefls"
+                                                          [numberOfPaginators]="beginnerNumberOfPaginators"
+                                                          [paginators]="beginnerPaginators"
+                                                          [isAuth]="isAuth"
+                                                          [isTeacherAuth]="isTeacherAuth"></app-beginner-toefl-list>
+                              </div>
+                          </div>
+                      </mdb-tab>
+
+                      <mdb-tab heading="Basic Exams">
+                          <div class="row">
+                              <div class="col-12">
+                                  <br>
+                                  <app-basic-toefl-list
+                                                        [toefls]="basicToefls"
+                                                        [numberOfPaginators]="basicNumberOfPaginators"
+                                                        [paginators]="basicPaginators"
+                                                        [isAuth]="isAuth"
+                                                        [isTeacherAuth]="isTeacherAuth"></app-basic-toefl-list>
+                              </div>
+                          </div>
+                      </mdb-tab>
+
+                      <mdb-tab heading="Intermediate Exams">
+                          <div class="row">
+                              <div class="col-12">
+                                  <br>
+                                  <app-intermediate-toefl-list
+                                                              [toefls]="intermediateToefls"
+                                                              [numberOfPaginators]="interNumberOfPaginators"
+                                                              [paginators]="interPaginators"
+                                                              [isAuth]="isAuth"
+                                                              [isTeacherAuth]="isTeacherAuth"></app-intermediate-toefl-list>
+                              </div>
+                          </div>
+                      </mdb-tab>
+
+                      <mdb-tab heading="Advanced Exams">
+                          <div class="row">
+                              <div class="col-12">
+                                  <br>
+                                  <app-advance-toefl-list
+                                                        [toefls]="advancedToefls"
+                                                        [numberOfPaginators]="advNumberOfPaginators"
+                                                        [paginators]="advPaginators"
+                                                        [isAuth]="isAuth"
+                                                        [isTeacherAuth]="isTeacherAuth"></app-advance-toefl-list>
+                              </div>
+                          </div>
+                      </mdb-tab>
+
+                      <mdb-tab heading="Each Section Exams">
+                              <div class="row">
+                                  <div class="col-12">
+                                      <br>
+                                      <app-toefl-list
+                                                    [toefls]="jointPaidToeflLists"
+                                                    [numberOfPaginators]="numberOfPaginators"
+                                                    [paginators]="paginators"
+                                                    [isAuth]="isAuth"
+                                                    [isTeacherAuth]="isTeacherAuth"></app-toefl-list>
+                                    </div>
+                              </div>
+                          </mdb-tab>
+
+              </mdb-tabset>
+      </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

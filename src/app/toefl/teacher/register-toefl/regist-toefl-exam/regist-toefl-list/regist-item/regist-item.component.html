@@ -1,0 +1,49 @@
+
+<a  #list
+    [routerLink]="[toefl.toeflNo]"
+    routerLinkActive="active"
+    class="col-md-12 list-group-item waves-light clearfix" mdbWavesEffect>
+
+    <div class="text-center">
+      <div *ngIf="soundOnOff">
+        <a class="btn-floating btn-lg peach-gradient waves-light" mdbWavesEffect>
+            <i class="list-group-item-heading">{{ toefl.toeflNo }}</i>
+        </a>
+
+        <button type="button" class="pull-right btn-floating btn-sm blue-gradient waves-light"
+                  mdbWavesEffect
+                  (click)="onSound(false)"><i class="fa fa-volume-up"></i></button>
+      </div>
+
+      <div *ngIf="!soundOnOff">
+          <a class="btn-floating btn-lg peach-gradient waves-light" mdbWavesEffect>
+              <i class="list-group-item-heading">{{ toefl.toeflNo }}</i>
+          </a>
+
+          <button type="button" class="pull-right btn-floating btn-sm blue-gradient waves-light"
+                    mdbWavesEffect
+                    (click)="onSound(true)"><i class="fa fa-volume-off"></i></button>
+      </div>
+
+                  <hr>
+      <div class="avatar pull-left">
+          <img [src]="toefl.toeflImage"
+          class="rounded-circle img-responsive"
+          style="max-height: 50px">
+        </div>
+
+      <p class="list-group-item-text"> {{ toefl.toeflDesc | shorten1:200 }} </p>
+      <hr>
+      <div class="row">
+      <div class="col-md-6 pt-2">
+        <small>{{ toefl.toeflCreatedDate | date:'fullDate'}}</small>
+      </div>
+      <div class="col-md-2">
+       
+      </div>
+      <div class="col-md-4 pt-2">
+        <small>{{ toefl.toeflCompletionTag }}</small>
+      </div>
+    </div>
+    </div>
+  </a>

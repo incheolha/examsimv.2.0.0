@@ -1,0 +1,64 @@
+
+
+  private toefls: Toefl[] = [
+    new Toefl(1,
+      `'
+      The TOEFL iBT test measures your ability to use and understand the English language as it is read, heard, spoken,
+and written in the university classroom. As the most accepted English-language test in the world, more than 7,500
+universities, agencies, and other institutions in more than 130 countries accept TOEFL scores as part of their
+admissions criteria.
+In order for the TOEFL iBT test to measure how well you read, listen, speak, and write in English, and how well you
+use these skills together, you will be asked to integrate these skills. For example, you may read a passage or listen
+to a lecture, and then write or speak about what you learned.
+Using TOEFL iBT® Quick Prep
+TOEFL iBT Quick Prep can help you prepare for the TOEFL iBT test. All the questions in this Quick Prep book are
+real TOEFL iBT questions given to examinees at worldwide test administrations, but some questions are presented
+differently than on the real test.
+Quick Prep includes questions from all four sections of the TOEFL iBT test: Reading, Listening, Speaking, and
+Writing.
+Audio portions of the Listening and Speaking sections are provided wherever you see the headphones icon:
+      '`
+              ,
+              'Beginner', this.date, 'not completed',
+              '../../../assets/students.jpg',
+              '../../../assets/Track_028.mp3',
+              'tony ha',
+            [
+              new Reading('1', 'reading 1'),
+              new Reading('2', 'reading 2')
+            ],
+            [
+              new ImageSettingTime('../../../assets/educate.png', 40000),
+              new ImageSettingTime('../../../assets/educate.png', 50000)
+            ]),
+
+            new Toefl(2,
+              `'
+              222222 The TOEFL iBT test measures your ability to use and understand the English language as it is read, heard, spoken,
+        and written in the university classroom. As the most accepted English-language test in the world, more than 7,500
+        universities, agencies, and other institutions in more than 130 countries accept TOEFL scores as part of their
+        admissions criteria.
+        In order for the TOEFL iBT test to measure how well you read, listen, speak, and write in English, and how well you
+        use these skills together, you will be asked to integrate these skills. For example, you may read a passage or listen
+        to a lecture, and then write or speak about what you learned.
+        Using TOEFL iBT® Quick Prep
+        TOEFL iBT Quick Prep can help you prepare for the TOEFL iBT test. All the questions in this Quick Prep book are
+        real TOEFL iBT questions given to examinees at worldwide test administrations, but some questions are presented
+        differently than on the real test.
+        Quick Prep includes questions from all four sections of the TOEFL iBT test: Reading, Listening, Speaking, and
+        Writing.
+        Audio portions of the Listening and Speaking sections are provided wherever you see the headphones icon:
+              '`,
+              'Basic', this.date, 'not completed',
+              '../../../assets/educate.png',
+              '../../../assets/Track_027.mp3',
+              'tony ha',
+            [
+              new Reading('1', 'reading 1'),
+              new Reading('2', 'reading 2')
+            ],
+            [
+              new ImageSettingTime('../../../assets/educate.png', 40000),
+              new ImageSettingTime('../../../assets/educate.png', 50000)
+            ])
+  ];

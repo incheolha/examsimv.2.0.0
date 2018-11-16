@@ -1,0 +1,132 @@
+<div class="fullscreen">
+  <div class="row mr-0">
+      <div class="col-md-12 mx-auto">
+          <app-stepper [currentStep]="currentStep"></app-stepper>
+      </div>
+   </div>
+   <div class="row row1">
+     <div class="col-md-12">
+      <div class="card  mt-0 ml-5 mr-5 ">
+          <h3 class="card-header primary-color white-text text-center">Reading Section 4 and Problems</h3>
+
+          <div class="card-body p-1">
+
+            <div class="row mt-1">
+                  <div class="col-md-5">
+                    <div class="card card-body">
+                          <button type="button"
+                                  class="btn btn-primary btn-lg btn-block waves-light"
+                                  [disabled]="!isAlreadySaved"
+                                  (click)="onMakeExam()"
+                                  #floatingButton
+                                  mdbWavesEffect>
+                                  <i class="fa fa-question mr-1">
+                                  </i>
+                                  Make Problems
+                          </button>
+                          <div class="makeExam">
+
+                          </div>
+                    </div>
+                  </div>
+                  <div class="col-md-7">
+                      <div *ngIf="!isAlreadySaved">
+                          <form [formGroup]="readingSection4" (ngSubmit)="onSubmit()">
+                            <div class="card card-body pt-0">
+
+                                  <div class="md-form">
+                                      <input mdbInputDirective
+                                            type="text"
+                                            id="section4Title"
+                                            class="form-control"
+                                            formControlName="section4Title"
+                                            >
+                                      <label for="section4Title" class="">Enter the Reading Title</label>
+                                    </div>
+
+                              <div>
+                              <app-tony-editor [htmlContent]="htmlContent"></app-tony-editor>
+                              </div>
+
+                              <div class="mt-3 mx-auto">
+                                  <div *ngIf="!updateMode">
+                                        <button type="submit"
+                                        class="btn btn-success waves-light"
+                                        (click)="onSubmit()"
+                                        mdbWavesEffect>
+                                        <i class="fa fa-question-circle mr-1">
+                                        </i>
+                                          Save !
+                                        </button>
+
+                                        <button type="button"
+                                        class="btn btn-warning waves-light"
+                                        (click)="onDelete()"
+                                        mdbWavesEffect>
+                                        <i class="fa fa-trash mr-1">
+                                        </i>
+                                          Delete !
+                                        </button>
+
+                                  </div>
+                                  <div *ngIf="updateMode">
+                                      <button type="submit"
+                                      class="btn btn-success waves-light"
+                                      (click)="onSubmit()"
+                                      mdbWavesEffect>
+                                      <i class="fa fa-question-circle mr-1">
+                                      </i>
+                                        Update !
+                                      </button>
+
+                                      <button type="button"
+                                      class="btn btn-warning waves-light"
+                                      (click)="onDelete()"
+                                      mdbWavesEffect>
+                                      <i class="fa fa-trash mr-1">
+                                      </i>
+                                        Delete !
+                                      </button>
+
+                                  </div>
+                              </div>
+
+                            </div>
+                          </form>
+                      </div>
+                      <div *ngIf="isAlreadySaved">
+                            <div class="card card-body pt-0">
+                              <div class="paragraphArea">
+                                  <div class="text-center">
+                                    <h5>{{ savedSectiontitle }}</h5>
+                                  </div>
+                                  <div [innerHTML]="savedSectionContent">
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="mt-3 text-center">
+                                <button type="button"
+                                class="btn btn-success waves-light"
+                                (click)="onEdit()"
+                                mdbWavesEffect>
+                                <i class="fa fa-question-circle mr-1">
+                                </i>
+                                  Edit !
+                                </button>
+                                <button type="button"
+                                class="btn btn-warning waves-light"
+                                (click)="onDelete()"
+                                mdbWavesEffect>
+                                <i class="fa fa-trash mr-1">
+                                </i>
+                                  Delete !
+                                </button>
+                            </div>
+                      </div>
+                  </div>
+            </div>
+          </div>
+      </div>
+   </div>
+  </div>
+</div>

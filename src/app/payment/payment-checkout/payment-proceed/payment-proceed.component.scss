@@ -1,0 +1,51 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 4rem;
+}
+
+#cardImages>.fa{
+    font-size: 2em;
+    width: 1.5em;
+    height: 1.5em;
+    // text-align: center;
+  }
+
+.fa-cc-mastercard{
+    color:#b71c1c;
+}
+.fa-cc-visa{
+   color: #0d47a1
+}
+
+.fa-cc-amex{
+    color: #4285F4
+}
+
+.fa-cc-discover{
+   color: #37474F
+}
+
+.fa-cc-jcb{
+    color:#311b92
+}
+
+.fa-cc-stripe{
+    color: #2BBBAD
+}
+
+.fa-cc-diners-club{
+    color: #3F729B
+}
+.fa-google-wallet{
+    color: #ffd600
+}
+
+.fa-paypal{
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    color: #0d47a1;
+}
+
