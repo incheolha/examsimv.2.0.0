@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const User = require('../../models/users/userModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const saltKey = require('../../middlewareAuthChecker/saltKey');
+const saltKey = require('../../middleware/saltKey');
 
 exports.user_get_all = (req, res, next) => {
 

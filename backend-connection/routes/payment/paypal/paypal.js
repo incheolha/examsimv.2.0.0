@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
-const path = require('path');
 const PayPalController = require('../../../controllers/payment/paypal/paypal');
 
 router.get('/executePayment', PayPalController.execute_payment);

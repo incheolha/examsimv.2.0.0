@@ -6,45 +6,33 @@ const User = require('../../../models/users/userModel');
 
 exports.register_get_all = (req, res, next) => {
 
-    //token 속에 들어있는 payload 값인 user doc에 관한 내용을 decoded하는과정
+  /*
+     이곳에서 언제든지 user._Id와 Toefl.writer.objectId를 비교하여 해당
+     관리자가 생성한 것만 보여주게 할수가 있다. 하지만 지금은 모두가 다 볼수 있도록 구성하였다
+    token 속에 들어있는 payload 값인 user doc에 관한 내용을 decoded하는과정
+  */
     const decoded = jwt.decode(req.query.token);
     console.log("decoded: " + decoded.user.permissionTag);
     console.log("decoded: " + decoded.user.email);
 
-    User.findById(decoded.user._id, (err, user) => {
+  Toefl.find()
+              // .populate('writer', 'name email permissionTag')
+              // .sort({'toeflNo': -1})                           // 내림차순 sorting 구문
+              // .exec()
+              .then(toefls => {
+                console.log('register toefls list 길이', toefls.length);
+                  res.status(200).json({
+                      message: 'get successfully',
+                      toefls: toefls
+                  });
+              })
+              .catch(err => {
+                  res.status(500).json({
+                    title: 'Toefle Registration List Error',
+                    message: 'Toefle Registration List can not be listed'
+                  });
+              });
 
-      if (err) {
-          return res.status(500).json({
-            title: 'Toefle Registration Creation Error',
-            message: 'The teacher is not existed'
-          });
-      } else {
-                if (decoded.user.permissionTag == 'teacher') {
-                    Toefl.find()
-                                .populate('writer', 'name email permissionTag')
-                                // .sort({'toeflNo': -1})                           // 내림차순 sorting 구문
-                                .exec()
-                                .then(toefls => {
-                                  console.log('register toefls list 길이', toefls.length);
-                                    res.status(200).json({
-                                        message: 'get successfully',
-                                        toefls: toefls
-                                    });
-                                })
-                                .catch(err => {
-                                    res.status(500).json({
-                                      title: 'Toefle Registration List Error',
-                                      message: 'Toefle Registration List can not be listed'
-                                    });
-                                });
-                } else {
-                    return res.status(401).json({
-                      title: 'Toefle Registration List Error',
-                      message: 'You must have a right permission to access'
-                    });
-                }
-            }
-    })
 }
 
 //토플시험 등록 신청시 반드시 parameters로 toeflNo를 가지고 들어오기

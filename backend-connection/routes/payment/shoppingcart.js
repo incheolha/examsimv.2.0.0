@@ -1,12 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
-
-
 const jwt = require('jsonwebtoken');
-const checkAuth = require('../../middlewareAuthChecker/checkAuth');
-const saltKey = require('../../middlewareAuthChecker/saltKey');
-const User = require('../../models/users/userModel');
+const saltKey = require('../../middleware/saltKey');
 
 const ShoppingcartController = require('../../controllers/payment/shoppingcart/shoppingcart');
 
@@ -28,9 +23,5 @@ router.use('/', (req, res, next) =>{
 
 router.post('/', ShoppingcartController.shoppingcart_post);
 
-
 module.exports = router;
-
-
-//delete
 

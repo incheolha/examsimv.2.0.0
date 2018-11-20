@@ -50,11 +50,7 @@ export class SignupComponent implements OnInit, OnDestroy {
                           this.signUpForm.value.name,
                           this.signUpForm.value.permissionTag);
 
-    this.authServie.signup(user).subscribe( data => {
-                            this.router.navigateByUrl('/');
-                          },
-                  error => console.error(error)
-     );
+    this.authServie.signup(user);
     this.signUpForm.reset();
   }
 

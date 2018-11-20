@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
@@ -34,62 +34,74 @@ export class AuthService {
   public shoppingCartLists = new Subject<Shoppingcart[]>();
   public paidToeflLists = new Subject<PaidToeflList[]>();
 
-  constructor(private http: Http,
+  constructor(private http: HttpClient,
               private router: Router,
               private utilityService: UtilityService) {}
 
   signup(user: User) {
-    const body = JSON.stringify(user);
-    const headers = new Headers({'Content-Type': 'application/json'});
+
     this.utilityService.loadingStateChanged.next(true);
-    return this.http.post('http://localhost:3000/user/signup', body, {headers: headers})
-                    .map((response: Response) => {
-                                                  const result = response.json();
-                                                  localStorage.setItem('token', result.token);
-                                                  localStorage.setItem('userId', result.userId);
-                                                  localStorage.setItem('userName', result.userName);
-                                                  localStorage.setItem('userEmail', result.userEmail);
+    this.http.post
+                  <{ message: string,
+                      token: string,
+                      userId: string,
+                      userName: string,
+                      userEmail: string,
+                      permissionTag: string,
+                      shoppingCartLists: Shoppingcart[],
+                      paidToeflLists: PaidToeflList[]
+                    }>
+                   ('http://localhost:3000/user/signup', user)
 
-                                                  this.authSuccess(result.permissionTag);
-                                                  this.utilityService.loadingStateChanged.next(false);
+                    .subscribe((result) => {
 
-                                                  this.shoppingCartLists.next(result.shoppingCartLists);
-                                                  this.paidToeflLists.next(result.paidToeflLists);
+                            localStorage.setItem('token', result.token);
+                            localStorage.setItem('userId', result.userId);
+                            localStorage.setItem('userName', result.userName);
+                            localStorage.setItem('userEmail', result.userEmail);
 
-                                                  return result;
-                    })
-                     .catch((error: Response) => this.handleError(error));
+                            this.authSuccess(result.permissionTag);
+                            this.utilityService.loadingStateChanged.next(false);
+                            this.shoppingCartLists.next(result.shoppingCartLists);
+                            this.paidToeflLists.next(result.paidToeflLists);
+                            this.router.navigate(['/']);
+                });
   }
 
   login(user: User) {
     this.utilityService.loadingStateChanged.next(true);
-    const body = JSON.stringify(user);
-    const headers = new Headers({'Content-Type': 'application/json'});
-    this.utilityService.loadingStateChanged.next(true);
-    return this.http.post('http://localhost:3000/user/login', body, {headers: headers})
-                    .map((response: Response) => {
-                                                  const result = response.json();
-                                                  console.log(result);
-                                                  localStorage.setItem('token', result.token);
-                                                  localStorage.setItem('userId', result.userId);
-                                                  localStorage.setItem('userName', result.userName);
-                                                  localStorage.setItem('userEmail', result.userEmail);
+    this.http.post
+                  <{ message: string,
+                      token: string,
+                      userId: string,
+                      userName: string,
+                      userEmail: string,
+                      permissionTag: string,
+                      shoppingCartLists: Shoppingcart[],
+                      paidToeflLists: PaidToeflList[]
+                    }>
+                   ('http://localhost:3000/user/login', user)
 
-                                                  this.authSuccess(result.permissionTag);
-                                                  this.utilityService.loadingStateChanged.next(false);
-                                                 this.shoppingCartLists.next(result.shoppingCartLists);
-                                                 this.paidToeflLists.next(result.paidToeflLists);
-                                                 return result;
-                    })
-                  .catch((error: Response) => this.handleError(error));
+                    .subscribe((result) => {
+                            localStorage.setItem('token', result.token);
+                            localStorage.setItem('userId', result.userId);
+                            localStorage.setItem('userName', result.userName);
+                            localStorage.setItem('userEmail', result.userEmail);
+
+                            this.authSuccess(result.permissionTag);
+                            this.utilityService.loadingStateChanged.next(false);
+                            this.shoppingCartLists.next(result.shoppingCartLists);
+                            this.paidToeflLists.next(result.paidToeflLists);
+                            this.router.navigate(['/']);
+                });
   }
 
-  private handleError(error: Response) {
-    const err = error.json();
-    this.utilityService.loadingStateChanged.next(false);
-    this.utilityService.errorToast(err.title, err.message);
-    return Observable.throw(err);
-  }
+  // private handleError(error: Response) {
+  //   const err = error.json();
+  //   this.utilityService.loadingStateChanged.next(false);
+  //   this.utilityService.errorToast(err.title, err.message);
+  //   return Observable.throw(err);
+  // }
 
   private authSuccess(teacherAuth: string) {
     this.authChange.next(true);

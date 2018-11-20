@@ -52,10 +52,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     const user = new User(this.loginForm.value.email,
                           this.loginForm.value.password);
 
-    this.authService.login(user).subscribe( data => {
-                                                      this.router.navigate(['/']);
-                                                    },
-                                                    error => { console.log(error); });
+    this.authService.login(user);
     this.loginForm.reset();
   }
 
