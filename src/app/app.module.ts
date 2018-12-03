@@ -6,10 +6,12 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModulesPro } from 'ng-uikit-pro-standard';
 import { MDBSpinningPreloader } from 'ng-uikit-pro-standard';
 
+import { MatDialogModule } from '@angular/material';
+
 import { ToastrModule } from 'ngx-toastr';
 
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 import { AuthService } from './auth/auth.service';
@@ -37,7 +39,8 @@ import { AdvanceToeflListComponent } from './toefl/toeflExam/advance-toefl-list/
 import { BeginnerToeflListComponent } from './toefl/toeflExam/beginner-toefl-list/beginner-toefl-list.component';
 import { EventToeflListComponent } from './toefl/toeflExam/event-toefl-list/event-toefl-list.component';
 import { ShortenPipe } from './shared/pipe-collection/shorten.pipe';
-
+import { ErrorInterceptor } from './error-interceptor';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,8 @@ import { ShortenPipe } from './shared/pipe-collection/shorten.pipe';
     AdvanceToeflListComponent,
     FooterComponent,
     EventToeflListComponent,
-    ShortenPipe
+    ShortenPipe,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -67,14 +71,15 @@ import { ShortenPipe } from './shared/pipe-collection/shorten.pipe';
     SharedModule,
     PaymentModule,
     ToastrModule.forRoot(),
-    MDBBootstrapModulesPro.forRoot()
+    MDBBootstrapModulesPro.forRoot(),
+    MatDialogModule
    ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
-    MDBSpinningPreloader,
-    AuthService,
-    UtilityService
+    MDBSpinningPreloader, AuthService, UtilityService,
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ErrorComponent]
 })
 export class AppModule { }

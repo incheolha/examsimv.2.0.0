@@ -65,7 +65,8 @@ export class AuthService {
                             this.shoppingCartLists.next(result.shoppingCartLists);
                             this.paidToeflLists.next(result.paidToeflLists);
                             this.router.navigate(['/']);
-                });
+                },
+                error => { this.authChange.next(false); });
   }
 
   login(user: User) {
@@ -93,15 +94,16 @@ export class AuthService {
                             this.shoppingCartLists.next(result.shoppingCartLists);
                             this.paidToeflLists.next(result.paidToeflLists);
                             this.router.navigate(['/']);
-                });
+                },
+                error => { this.authChange.next(false); });
   }
 
-  // private handleError(error: Response) {
-  //   const err = error.json();
-  //   this.utilityService.loadingStateChanged.next(false);
-  //   this.utilityService.errorToast(err.title, err.message);
-  //   return Observable.throw(err);
-  // }
+  private handleError(error) {
+    console.log('에러 메세지', error);
+    this.utilityService.loadingStateChanged.next(false);
+    this.utilityService.errorToast(error.error.title, error.error.message);
+    return Observable.throw(error);
+  }
 
   private authSuccess(teacherAuth: string) {
     this.authChange.next(true);
