@@ -28,6 +28,7 @@ export class AuthService {
   clearPaidToeflLists: PaidToeflList[] = [];     // logout으로 인한 인증취소시 모든 PaidToeflList[]를 초기화 시킨다
   clearShoppingCartLists: Shoppingcart[] = [];
   clearProfileInfoPassed: ProfileInfo = null;
+
   isAuthenticated = false;
   isteacherAuthenticated = false;
 
@@ -66,7 +67,7 @@ export class AuthService {
                             this.paidToeflLists.next(result.paidToeflLists);
                             this.router.navigate(['/']);
                 },
-                error => { this.authChange.next(false); });
+                error => { this.handleError(error); });
   }
 
   login(user: User) {
@@ -95,14 +96,14 @@ export class AuthService {
                             this.paidToeflLists.next(result.paidToeflLists);
                             this.router.navigate(['/']);
                 },
-                error => { this.authChange.next(false); });
+                error => { this.handleError(error); });
   }
 
   private handleError(error) {
     console.log('에러 메세지', error);
+    this.authChange.next(false);
     this.utilityService.loadingStateChanged.next(false);
-    this.utilityService.errorToast(error.error.title, error.error.message);
-    return Observable.throw(error);
+    return;
   }
 
   private authSuccess(teacherAuth: string) {

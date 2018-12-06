@@ -1,4 +1,8 @@
-import { UtilityService } from './Utility-shared/utility.service';
+/*
+httpClient에서 발생하는 모든 error를 중간에서 intercet한후
+이것을 MATDialog->ErrorComponent에 MODAL을 이용하여 error message를 화면와 보여준다
+*/
+
 import { Injectable } from '@angular/core';
 import { HttpInterceptor,
          HttpHandler,
